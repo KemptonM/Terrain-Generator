@@ -1,7 +1,7 @@
+# maillett_terrain.py
 # Kempton Maillett
-# Project 2
-# No collaboration
 #   using maillett_terrain.py will turn grass green!
+#   (you can also change RGB values for different colors)
 
 import tkinter as tk
 import random

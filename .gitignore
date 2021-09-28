@@ -1,6 +1,7 @@
 # Kempton's stuff:
 *.pdf
 test.py
+terrain.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
