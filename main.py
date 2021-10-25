@@ -1,6 +1,7 @@
-# NAME: KEMPTON MAILLETT
+# NAME: KEMPTON MAILLETT | COS125
 # ASSIGNMENT: PROJECT 2
-# COLLABORATION: 
+# COLLABORATION: NONE
+# This program uses a given overlay and 
 
 import random
 import copy
@@ -30,6 +31,7 @@ def genRivers(elevation, overlay, waterLevel):
         flow(elevation, overlay, waterLevel, x, y)
  
 def flow(elevation, overlay, waterLevel, x, y):
+    # Function to recursively flow water onto neighboring cells that flow downstream
     x_ = x      # x coordinate being checked
     y_ = y      # y coordinate being checked
     try:            # get the minimum
@@ -46,10 +48,11 @@ def flow(elevation, overlay, waterLevel, x, y):
         else:
             overlay[x][y] = 1
             flow(elevation, overlay, waterLevel, x_, y_)
-    except IndexError:
+    except IndexError: # kind of a hack, should fix index errors
         return
 
 def genBeaches(elevation, beaches, waterLevel):
+    # Generate beaches near waterlevel
         for r in range(len(elevation)):
             for c in range(len(elevation)):
                 if elevation[r][c] <= waterLevel:
@@ -62,14 +65,14 @@ def genBeaches(elevation, beaches, waterLevel):
                         continue
 
 def sandSpread(elevation, beaches, waterLevel, r, c, count = 0):
+    # Recursive function to spread sand to neighboring land cells
     try:
         for r2 in range(-1, 2):
             for c2 in range(-1, 2):
-                if elevation[r+r2][c+c2] > waterLevel:
-                    # beach cell found!
-                    beaches[r+r2][c+c2] = 1
-                    print(f"genBeaches count: {count+1}")
-                    if count < 2:
+                if elevation[r+r2][c+c2] > waterLevel:      # if adjacent cell isn't water:
+                    beaches[r+r2][c+c2] = 1                     # apply another beach cell
+                    # print(f"genBeaches count: {count+1}") # uncomment to count number of beaches in console
+                    if count < 2:   # do it twice
                         sandSpread(elevation, beaches, waterLevel,
                         r+r2, c+c2, count + 1)
                     else:
@@ -81,19 +84,19 @@ def main():
 
     size = 125              # size of grid
     waterLevel = 0.4       # this can be changed
-    elevation = terrain.GetElevationMap(size)
-    ocean = terrain.GenerateEmptyOverlay(size)
-    rivers = terrain.GenerateEmptyOverlay(size)
-    beaches = terrain.GenerateEmptyOverlay(size)
+    elevation = terrain.GetElevationMap(size)       # get the elevation map
+    ocean = terrain.GenerateEmptyOverlay(size)      # generate an empty ocean overlay
+    rivers = terrain.GenerateEmptyOverlay(size)     # generate an empty river overlay
+    beaches = terrain.GenerateEmptyOverlay(size)    # generate an empty beaches overlay
 
-    genBodies(elevation, ocean, waterLevel)     # generate the ocean
+    genBodies(elevation, ocean, waterLevel)         # generate the ocean
     genBeaches(elevation, beaches, waterLevel)
-    genRivers(elevation, rivers, waterLevel)    # generate the rivers
+    genRivers(elevation, rivers, waterLevel)        # generate the rivers
 
     terrain.DisplayTerrainWithOverlays (
-        elevation,              # pass in the elevation map
-        ocean, 'midnight blue', # display ocean, dark blue
-        rivers, 'blue4',        # display rivers, lighter blue
+        elevation,                          # pass in the elevation map
+        ocean, 'midnight blue',             # display ocean, dark blue
+        rivers, 'blue4',                    # display rivers, lighter blue
         beaches, 'khaki2'
     )
 
