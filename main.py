@@ -1,18 +1,19 @@
 # NAME: KEMPTON MAILLETT | COS125
 # ASSIGNMENT: PROJECT 2
 # COLLABORATION: NONE
-# This program uses a given overlay and 
-
-import random
-import copy
-import maillett_terrain as terrain
+# This program uses a given array and creates ocean, 
+# river, and beach cells based on height values.
 
 # potential overlays:
 #   farmland around rivers
 #   groups of houses
 #       try to identify flatlands
-#   beaches
+#   beaches (done)
 #   ponds
+
+import random
+import copy
+import maillett_terrain as terrain
 
 def genBodies(elevation, ocean, waterLevel):
     for r in range(len(elevation)):
