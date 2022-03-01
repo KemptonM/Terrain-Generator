@@ -1,7 +1,8 @@
 # maillett_terrain.py
-# Kempton Maillett
-#   using maillett_terrain.py will turn grass green!
-#   (you can also change RGB values for different colors)
+#  *mostly not my code, this file was provided by professor
+#  I added lines 192-195 and changed 204-207 to allow for a green gradient
+# instead of a gray one. Modifications can be made to the RGB values
+# for different colors.
 
 import tkinter as tk
 import random
@@ -190,7 +191,6 @@ def DisplayTerrain(terrain):
 
 def from_rgb(rgb):  # translates rgb so that tkinter can accept
     rgb = tuple(rgb)
-    return "#%02x%02x%02x" % rgb    # I found this line on github
                                         # https://tinyurl.com/z475z7t4
 def DisplayTerrainWithOverlays(elevation_map, *args):
 
