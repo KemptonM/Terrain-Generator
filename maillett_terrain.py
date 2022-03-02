@@ -191,8 +191,8 @@ def DisplayTerrain(terrain):
 
 def from_rgb(rgb):  # translates rgb so that tkinter can accept
     rgb = tuple(rgb)
-    return "#%02x%02x%02x" % rgb        # I found this line on github
-                                        # https://tinyurl.com/z475z7t4
+    return "#%02x%02x%02x" % rgb        # I found this on stackoverflow: https://tinyurl.com/z475z7t4
+
 def DisplayTerrainWithOverlays(elevation_map, *args):
 
     if len(args)%2 != 0:
