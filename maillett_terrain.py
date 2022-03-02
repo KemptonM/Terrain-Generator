@@ -162,33 +162,6 @@ def GetElevationMap(map_size, seed=None):
     random.seed(None)
     return terrain
 
-def DisplayTerrain(terrain):
-    scale = 8
-    size = len(terrain)
-    colors = []
-    for i in range(1,99,1):
-        colors.append('gray'+str(i))
-
-    root = tk.Tk()
-
-    canvas = tk.Canvas(root, bg='white', height=size*scale, width=size*scale)
-
-
-    for x in range(len(terrain)):
-        for y in range(len(terrain[x])):
-            _x = x*scale
-            _y = y*scale
-            try:
-                if int(terrain[x][y]*(len(colors)-1)) < 0:
-                    print(terrain[x][y])
-                c = colors[int(terrain[x][y]*(len(colors)-1))]
-                canvas.create_rectangle(_x,_y,_x+scale,_y+scale,fill=c)
-            except IndexError:
-                print(terrain[x][y]*len(colors))
-
-    canvas.pack()
-    root.mainloop()
-
 def from_rgb(rgb):  # translates rgb so that tkinter can accept
     rgb = tuple(rgb)
     return "#%02x%02x%02x" % rgb        # I found this on stackoverflow: https://tinyurl.com/z475z7t4
