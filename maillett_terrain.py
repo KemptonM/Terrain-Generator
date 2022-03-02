@@ -1,6 +1,6 @@
 # maillett_terrain.py
-#  *mostly not my code, this file was provided by professor
-#  I added lines 192-195 and changed 204-207 to allow for a green gradient
+#  *mostly not my code, this file was provided by professor.
+#  changed some lines to allow for an RGB gradient
 # instead of a gray one. Modifications can be made to the RGB values
 # for different colors.
 
