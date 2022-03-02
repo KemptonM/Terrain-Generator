@@ -12,7 +12,6 @@
 #   ponds
 
 import random
-import copy
 import maillett_terrain as terrain
 
 def genBodies(elevation, ocean, waterLevel):
